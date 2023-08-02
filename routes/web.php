@@ -40,13 +40,10 @@ Route::middleware('auth')->group(function () {
 
 
 
-
-
-
-
 // Backend Routes....................................................................
 
-Route::get('dashboard',  [AdminController::class, 'login']);
+Route::get('/supper/admin',  [AdminController::class, 'login']);
+Route::get('/admin/dashboard',  [AdminController::class, 'dashboard']);
 
 
 
