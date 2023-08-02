@@ -65,21 +65,25 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Futured
+## Features
 
-1. Multiple Language.
-2. Order Tracking.
-3. Stock Management.
-4. User role management.
-5. Socialite.
-6. Return Order / Coupon.
-7. Facebook Comment.
-8. Product Share on twitter/facebook/messanger/linkedin etc.
-9. Payment Gateway Stripe/Mollie/Paypal
-10. Mailing.
-11. Reports.
-12. Discount/Buy one Get One / Flash deal etc.
-13. JWT & Laravel Passport.
-14. Wishlist
-15. Cronjob & Task Scheduling
-16. Telescop.
+laravel eCommerce package that have reinvented the wheel and kept going strong over time. ... It's the simplicity, clarity and flexibility of the framework that has also paved the way for many true Laravel eCommerce packages.laravel ecommerce project bangla course overview.
+
+1.  Multiple Lanaguage //
+2.  Order Tracking //
+3.  Stock management //
+4.  User role management //
+5.  Socialite //
+6.  Return Order / Coupon //
+7.  Facebook Comment //
+8.  Product Share on twitter/facebok/messanger/linkedin etc //
+9.  Discount/Buy one get One/ Flash deal etc. //
+10. Payment Gateway Stripe/Mollie/Paypal //
+11. Mailing //
+12. Reports
+13. Wishlist //
+14. JWT & Laravel Passport //
+15. Cronjob & Task Scheduling //
+16. Telescope //
+17. data base backup //
+    and many things.
