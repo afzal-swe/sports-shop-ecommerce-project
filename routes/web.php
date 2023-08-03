@@ -25,9 +25,9 @@ use App\Http\Controllers\Backend\AdminController;
 
 Route::get('/',  [HomeController::class, 'index']);
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,8 +42,11 @@ Route::middleware('auth')->group(function () {
 
 // Backend Routes....................................................................
 
-Route::get('/supper/admin',  [AdminController::class, 'login']);
-Route::get('/admin/dashboard',  [AdminController::class, 'dashboard']);
+// Route::get('/supper/admin',  [AdminController::class, 'login']);
+// Route::get('/dashboard',  [AdminController::class, 'dashboard']);
+// Route::post('/admin-dashboard',  [AdminController::class, 'admin_dashboard'])->name('admin-dashboard');
+
+
 
 
 

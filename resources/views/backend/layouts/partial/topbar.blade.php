@@ -268,10 +268,22 @@
                                  <span>Account Settings</span>
                             </li>
                             <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-                            <li><a href="login.html"><i class="halflings-icon off"></i> Logout</a></li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+        
+                                <x-dropdown-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    <li><i class="halflings-icon off"></i> Logout</li>
+                                </x-dropdown-link>
+                            </form>
                         </ul>
                     </li>
                     <!-- end: User Dropdown -->
+
+                    
+
+
                 </ul>
             </div>
             <!-- end: Header Menu -->
