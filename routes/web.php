@@ -62,6 +62,8 @@ Route::get('/brand/delete/{id}',  [BrandController::class, 'destroy'])->name('br
 Route::get('/category',  [CategoryController::class, 'index'])->name('category.index')->middleware(['auth', 'verified']);
 Route::get('/category/create',  [CategoryController::class, 'create'])->name('category.create')->middleware(['auth', 'verified']);
 Route::post('/category/store',  [CategoryController::class, 'store'])->name('category.store')->middleware(['auth', 'verified']);
+Route::get('/category/edit/{id}',  [CategoryController::class, 'edit'])->name('category.edit')->middleware(['auth', 'verified']);
+Route::post('/category/update/{id}',  [CategoryController::class, 'update'])->name('category.update')->middleware(['auth', 'verified']);
 Route::get('/category/active/{id}',  [CategoryController::class, 'active'])->name('category.active')->middleware(['auth', 'verified']);
 Route::get('/category/unactive/{id}',  [CategoryController::class, 'unactive'])->name('category.unactive')->middleware(['auth', 'verified']);
 Route::get('/category/delete/{id}',  [CategoryController::class, 'destroy'])->name('category.destroy')->middleware(['auth', 'verified']);

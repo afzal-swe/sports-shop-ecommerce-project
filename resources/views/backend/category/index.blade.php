@@ -42,7 +42,7 @@
                         @else
                             <a class="btn btn-label" href="{{ route('category.unactive',$row->id) }}"><i class="fa-solid fa-toggle-off fa-xl" title="Active"></i></a>
                         @endif
-                        <a class="btn btn-info" href="#"><i class="halflings-icon white edit" title="Edit"></i></a>
+                        <a class="btn btn-info" href="{{ route('category.edit',$row->id) }}"><i class="halflings-icon white edit" title="Edit"></i></a>
                         <a class="btn btn-danger" href="{{ route('category.destroy',$row->id) }}"><i class="halflings-icon white trash" title="Delete"></i></a>
                     </td>
                 </tr>

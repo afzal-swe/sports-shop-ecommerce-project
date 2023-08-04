@@ -75,4 +75,26 @@ class CategoryController extends Controller
         $notification = array('message' => 'Category Delete Successfully', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
+
+    public function edit($id)
+    {
+        $edit = Category::findOrFail($id);
+        $brand = Brand::where('brand_status', '=', '1')->get();
+        return view('backend.category.edit', compact('edit', 'brand'));
+    }
+
+    public function update(Request $request)
+    {
+        $update = $request->id;
+
+        Category::findOrFail($update)->update([
+            'brand_id' => $request->brand_id,
+            'category_name' => $request->category_name,
+            'category_status' => $request->category_status,
+            'category_slug' => Str::of($request->category_name)->slug('-'),
+            'updated_at' => Carbon::now(),
+        ]);
+        $notification = array('message' => 'Category Update Successfully', 'alert-type' => 'success');
+        return redirect()->route('category.index')->with($notification);
+    }
 }
