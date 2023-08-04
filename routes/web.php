@@ -54,6 +54,7 @@ Route::post('/brand/store',  [BrandController::class, 'store'])->name('brand.sto
 // Category Route Section //
 Route::get('/category',  [CategoryController::class, 'index'])->name('category.index')->middleware(['auth', 'verified']);
 Route::get('/category/create',  [CategoryController::class, 'create'])->name('category.create')->middleware(['auth', 'verified']);
+Route::post('/category/store',  [CategoryController::class, 'store'])->name('category.store')->middleware(['auth', 'verified']);
 
 
 

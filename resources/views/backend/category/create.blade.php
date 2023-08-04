@@ -11,14 +11,22 @@
             </div>
         </div>
         <div class="box-content">
-            <form class="form-horizontal">
-              <fieldset>
+            <form class="form-horizontal" action="{{ route('category.store') }}" method="POST">
+              @csrf
+
 
                 <div class="control-group">
                   <label class="control-label" for="typeahead">Brand Name </label>
                   <div class="controls">
-                    <select name="" id="" class="span6 typeahead">
+                    <select name="brand_id" id="" class="span6 typeahead @error('brand_id') is-invalid @enderror">
                       <option value="" disabled>Select Brand</option>
+                      @foreach ($brand as $row)
+                        <option value="{{ $row->id }}">{{ $row->brand_name }}</option>
+                      @endforeach
+
+                      @error('brand_id')
+                          <span class="text-danger">{{ $message }}</span>
+                      @enderror
                     </select>
                     
                   </div>
@@ -27,15 +35,18 @@
                 <div class="control-group">
                   <label class="control-label" for="typeahead">Category Name </label>
                   <div class="controls">
-                    <input type="text" class="span6 typeahead" id="typeahead" placeholder="Category Name">
+                    <input type="text" class="span6 typeahead @error('category_name') is-invalid @enderror" id="typeahead" name="category_name" placeholder="Category Name"><br>
                     
+                    @error('category_name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                   </div>
                 </div>
 
                 <div class="control-group">
                   <label class="control-label" for="typeahead">Publication Status </label>
                   <div class="controls">
-                    <input type="checkbox" class="span6 typeahead" id="typeahead" value="1">
+                    <input type="checkbox" class="span6 typeahead" id="typeahead" name="category_status" value="1">
                     
                   </div>
                 </div>
@@ -44,7 +55,7 @@
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary">Add Category</button>
                 </div>
-              </fieldset>
+             
             </form>   
 
         </div>

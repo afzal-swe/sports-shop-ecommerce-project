@@ -38,7 +38,7 @@ class BrandController extends Controller
             'brand_status' => $request->brand_status,
             'created_at' => Carbon::now(),
         ]);
-        $notification = array('message' => 'Add Category Successfully', 'alert-type' => 'success');
+        $notification = array('message' => 'Add Brand Successfully', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 }
