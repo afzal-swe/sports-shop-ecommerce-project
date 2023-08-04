@@ -64,6 +64,7 @@ Route::get('/category/create',  [CategoryController::class, 'create'])->name('ca
 Route::post('/category/store',  [CategoryController::class, 'store'])->name('category.store')->middleware(['auth', 'verified']);
 Route::get('/category/active/{id}',  [CategoryController::class, 'active'])->name('category.active')->middleware(['auth', 'verified']);
 Route::get('/category/unactive/{id}',  [CategoryController::class, 'unactive'])->name('category.unactive')->middleware(['auth', 'verified']);
+Route::get('/category/delete/{id}',  [CategoryController::class, 'destroy'])->name('category.destroy')->middleware(['auth', 'verified']);
 
 // Sub-category Route Section //
 Route::get('/sub-category',  [SubcategoryController::class, 'index'])->name('subcategory.index')->middleware(['auth', 'verified']);
