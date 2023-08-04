@@ -4,10 +4,18 @@
             <li><a href="{{ route('dashboard') }}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
 
             <li>
+                <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Brands </span><span class="label label-info"> 3 </span></a>
+                <ul>
+                    <li><a class="submenu" href="{{ route('brand.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Brand</span></a></li>
+                    <li><a class="submenu" href="{{ route('brand.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Brand</span></a></li>
+                </ul>	
+            </li>
+
+            <li>
                 <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Category </span><span class="label label-info"> 3 </span></a>
                 <ul>
-                    <li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Category</span></a></li>
-                    <li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Category</span></a></li>
+                    <li><a class="submenu" href="{{ route('category.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Category</span></a></li>
+                    <li><a class="submenu" href="{{ route('category.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Category</span></a></li>
                 </ul>	
             </li>
 

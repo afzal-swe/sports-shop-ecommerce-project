@@ -7,6 +7,9 @@ use App\Http\Controllers\Frontend\HomeController;
 
 // Backend Controller
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\BrandController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +45,14 @@ Route::middleware('auth')->group(function () {
 
 // Backend Routes....................................................................
 
-// Route::get('/supper/admin',  [AdminController::class, 'login']);
-// Route::get('/dashboard',  [AdminController::class, 'dashboard']);
-// Route::post('/admin-dashboard',  [AdminController::class, 'admin_dashboard'])->name('admin-dashboard');
+
+// Brands Route Section //
+Route::get('/brands',  [BrandController::class, 'index'])->name('brand.index')->middleware(['auth', 'verified']);
+Route::get('/brand/create',  [BrandController::class, 'create'])->name('brand.create')->middleware(['auth', 'verified']);
+
+// Category Route Section //
+Route::get('/category',  [CategoryController::class, 'index'])->name('category.index')->middleware(['auth', 'verified']);
+Route::get('/category/create',  [CategoryController::class, 'create'])->name('category.create')->middleware(['auth', 'verified']);
 
 
 
