@@ -72,4 +72,24 @@ class BrandController extends Controller
         $notification = array('message' => 'Brand Delete Successfully', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
+
+    public function edit($id)
+    {
+        $edit = Brand::findOrFail($id);
+        return view('backend.brands.edit', compact('edit'));
+    }
+
+    public function update(Request $request)
+    {
+        $update = $request->id;
+
+        Brand::findOrFail($update)->update([
+            'brand_name' => $request->brand_name,
+            'brand_slug' => Str::of($request->brand_name)->slug('-'),
+            'brand_status' => $request->brand_status,
+            'updated_at' => Carbon::now(),
+        ]);
+        $notification = array('message' => 'Brand Update Successfully', 'alert-type' => 'success');
+        return redirect()->route('brand.index')->with($notification);
+    }
 }

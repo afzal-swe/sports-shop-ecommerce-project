@@ -52,6 +52,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/brands',  [BrandController::class, 'index'])->name('brand.index')->middleware(['auth', 'verified']);
 Route::get('/brand/create',  [BrandController::class, 'create'])->name('brand.create')->middleware(['auth', 'verified']);
 Route::post('/brand/store',  [BrandController::class, 'store'])->name('brand.store')->middleware(['auth', 'verified']);
+Route::get('/brand/edit/{id}',  [BrandController::class, 'edit'])->name('brand.edit')->middleware(['auth', 'verified']);
+Route::post('/brand/update/{id}',  [BrandController::class, 'update'])->name('brand.update')->middleware(['auth', 'verified']);
 Route::get('/brand/active/{id}',  [BrandController::class, 'active'])->name('brand.active')->middleware(['auth', 'verified']);
 Route::get('/brand/unactive/{id}',  [BrandController::class, 'unactive'])->name('brand.unactive')->middleware(['auth', 'verified']);
 Route::get('/brand/delete/{id}',  [BrandController::class, 'destroy'])->name('brand.destroy')->middleware(['auth', 'verified']);
