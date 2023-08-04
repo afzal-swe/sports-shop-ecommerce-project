@@ -44,4 +44,26 @@ class CategoryController extends Controller
         $notification = array('message' => 'Add Category Successfully', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
+
+    public function active(Request $request)
+    {
+        $update = $request->id;
+
+        Category::findOrFail($update)->update([
+            'category_status' => '0',
+        ]);
+        $notification = array('message' => 'Category Unactive Successfully', 'alert-type' => 'success');
+        return redirect()->route('category.index')->with($notification);
+    }
+
+    public function unactive(Request $request)
+    {
+        $update = $request->id;
+
+        Category::findOrFail($update)->update([
+            'category_status' => '1',
+        ]);
+        $notification = array('message' => 'Category Active Successfully', 'alert-type' => 'success');
+        return redirect()->route('category.index')->with($notification);
+    }
 }

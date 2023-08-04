@@ -9,6 +9,8 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\SubcategoryController;
+
 
 
 /*
@@ -50,11 +52,20 @@ Route::middleware('auth')->group(function () {
 Route::get('/brands',  [BrandController::class, 'index'])->name('brand.index')->middleware(['auth', 'verified']);
 Route::get('/brand/create',  [BrandController::class, 'create'])->name('brand.create')->middleware(['auth', 'verified']);
 Route::post('/brand/store',  [BrandController::class, 'store'])->name('brand.store')->middleware(['auth', 'verified']);
+Route::get('/brand/active/{id}',  [BrandController::class, 'active'])->name('brand.active')->middleware(['auth', 'verified']);
+Route::get('/brand/unactive/{id}',  [BrandController::class, 'unactive'])->name('brand.unactive')->middleware(['auth', 'verified']);
 
 // Category Route Section //
 Route::get('/category',  [CategoryController::class, 'index'])->name('category.index')->middleware(['auth', 'verified']);
 Route::get('/category/create',  [CategoryController::class, 'create'])->name('category.create')->middleware(['auth', 'verified']);
 Route::post('/category/store',  [CategoryController::class, 'store'])->name('category.store')->middleware(['auth', 'verified']);
+Route::get('/category/active/{id}',  [CategoryController::class, 'active'])->name('category.active')->middleware(['auth', 'verified']);
+Route::get('/category/unactive/{id}',  [CategoryController::class, 'unactive'])->name('category.unactive')->middleware(['auth', 'verified']);
+
+// Sub-category Route Section //
+Route::get('/sub-category',  [SubcategoryController::class, 'index'])->name('subcategory.index')->middleware(['auth', 'verified']);
+Route::get('/sub-category/create',  [SubcategoryController::class, 'create'])->name('subcategory.create')->middleware(['auth', 'verified']);
+
 
 
 

@@ -28,8 +28,8 @@
             <li>
                 <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Sub-category </span><span class="label label-info"> 3 </span></a>
                 <ul>
-                    <li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Sub-category</span></a></li>
-                    <li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Sub-category</span></a></li>
+                    <li><a class="submenu" href="{{ route('subcategory.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Sub-category</span></a></li>
+                    <li><a class="submenu" href="{{ route('subcategory.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Sub-category</span></a></li>
                 </ul>	
             </li>
 

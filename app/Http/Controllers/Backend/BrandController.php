@@ -41,4 +41,26 @@ class BrandController extends Controller
         $notification = array('message' => 'Add Brand Successfully', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
+
+    public function active(Request $request)
+    {
+        $update = $request->id;
+
+        Brand::findOrFail($update)->update([
+            'brand_status' => '0',
+        ]);
+        $notification = array('message' => 'Brand Unactive Successfully', 'alert-type' => 'success');
+        return redirect()->route('brand.index')->with($notification);
+    }
+
+    public function unactive(Request $request)
+    {
+        $update = $request->id;
+
+        Brand::findOrFail($update)->update([
+            'brand_status' => '1',
+        ]);
+        $notification = array('message' => 'Brand Active Successfully', 'alert-type' => 'success');
+        return redirect()->route('brand.index')->with($notification);
+    }
 }
