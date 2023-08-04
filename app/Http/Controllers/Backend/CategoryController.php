@@ -14,7 +14,8 @@ class CategoryController extends Controller
     //  All Category Show Function //
     public function index()
     {
-        return view('backend.category.index');
+        $category = Category::all();
+        return view('backend.category.index', compact('category'));
     }
     //  All Category Show Function //
 
