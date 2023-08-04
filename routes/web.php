@@ -54,6 +54,7 @@ Route::get('/brand/create',  [BrandController::class, 'create'])->name('brand.cr
 Route::post('/brand/store',  [BrandController::class, 'store'])->name('brand.store')->middleware(['auth', 'verified']);
 Route::get('/brand/active/{id}',  [BrandController::class, 'active'])->name('brand.active')->middleware(['auth', 'verified']);
 Route::get('/brand/unactive/{id}',  [BrandController::class, 'unactive'])->name('brand.unactive')->middleware(['auth', 'verified']);
+Route::get('/brand/delete/{id}',  [BrandController::class, 'destroy'])->name('brand.destroy')->middleware(['auth', 'verified']);
 
 // Category Route Section //
 Route::get('/category',  [CategoryController::class, 'index'])->name('category.index')->middleware(['auth', 'verified']);
