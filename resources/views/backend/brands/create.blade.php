@@ -11,14 +11,17 @@
             </div>
         </div>
         <div class="box-content">
-            <form class="form-horizontal">
-                <fieldset>
+            <form class="form-horizontal" action="{{ route('brand.store') }}" method="POST">
+             @csrf
 
                     <div class="control-group">
                         <label class="control-label" for="typeahead">Brand Name </label>
                         <div class="controls">
-                            <input type="text" class="span6 typeahead" id="typeahead" placeholder="Brand Name">
+                            <input type="text" class="span6 typeahead @error('brand_name') is-invalid @enderror" id="typeahead" name="brand_name" placeholder="Brand Name"><br>
 
+                            @error('brand_name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 
@@ -30,10 +33,18 @@
                         </div>
                     </div>
 
+                    <div class="control-group">
+                        <label class="control-label" for="typeahead">Publication Status </label>
+                        <div class="controls">
+                          <input type="checkbox" class="span6 typeahead" name="brand_status"  id="typeahead" value="1">
+                          
+                        </div>
+                      </div>
+
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Add Brand</button>
                     </div>
-                </fieldset>
+                
             </form>
 
         </div>
