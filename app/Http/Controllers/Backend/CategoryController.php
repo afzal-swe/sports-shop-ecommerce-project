@@ -22,7 +22,7 @@ class CategoryController extends Controller
     //  Category Create Function //
     public function create()
     {
-        $brand = Brand::all();
+        $brand = Brand::where('brand_status', '=', '1')->get();
         return view('backend.category.create', compact('brand'));
     }
     //  Category Create Function //
