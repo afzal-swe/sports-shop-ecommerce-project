@@ -19,9 +19,9 @@
                   <label class="control-label" for="typeahead">Brand Name </label>
                   <div class="controls">
                     <select name="brand_id" id="" class="span6 typeahead">
-                      <option value="" disabled>Select Brand</option>
+                      <option value="" disabled >-- Choose Brand --</option>
                       @foreach ($brand as $row)
-                        <option value="{{ $row->id }}">{{ $row->brand_name }}</option>
+                        <option value="{{ $row->id }}" >{{ $row->brand_name }}</option>
                       @endforeach
 
                       

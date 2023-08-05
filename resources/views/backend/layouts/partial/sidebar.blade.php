@@ -39,8 +39,8 @@
             <li>
                 <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Post </span><span class="label label-info"> 3 </span></a>
                 <ul>
-                    <li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Create New Post </span></a></li>
-                    <li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Post </span></a></li>
+                    <li><a class="submenu" href="{{ route('product.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add New Post </span></a></li>
+                    <li><a class="submenu" href="{{ route('product.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Post </span></a></li>
                 </ul>	
             </li>
 

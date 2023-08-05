@@ -19,7 +19,7 @@
                   <label class="control-label" for="typeahead">Brand Name <samp class="text-danger">*</samp></label>
                   <div class="controls">
                     <select name="brand_id" id="" class="span6 typeahead @error('brand_id') is-invalid @enderror">
-                      <option value="" disabled>Select Brand</option>
+                      <option value="" disabled selected>-- Choose Brand --</option>
                       @foreach ($brand as $row)
                         <option value="{{ $row->id }}">{{ $row->brand_name }}</option>
                       @endforeach
@@ -36,7 +36,7 @@
                   <label class="control-label" for="typeahead">Category Name <span class="text-danger" >*</span></label>
                   <div class="controls">
                     <select name="category_id" id="" class="span6 typeahead @error('category_id') is-invalid @enderror">
-                      <option value="" disabled>Select Brand</option>
+                      <option value="" disabled selected>-- Choose Category --</option>
                       @foreach ($category as $row)
                         <option value="{{ $row->id }}">{{ $row->category_name }}</option>
                       @endforeach

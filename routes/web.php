@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\SubcategoryController;
+use App\Http\Controllers\Backend\ProductController;
 
 //Frontend Controller
 use App\Http\Controllers\Frontend\FCategoryController;
@@ -77,6 +78,11 @@ Route::post('/sub-category/store',  [SubcategoryController::class, 'store'])->na
 Route::get('/sub-category/active/{id}',  [SubcategoryController::class, 'active'])->name('subcategory.active')->middleware(['auth', 'verified']);
 Route::get('/sub-category/unactive/{id}',  [SubcategoryController::class, 'unactive'])->name('subcategory.unactive')->middleware(['auth', 'verified']);
 Route::get('/sub-category/delete/{id}',  [SubcategoryController::class, 'destroy'])->name('subcategory.destroy')->middleware(['auth', 'verified']);
+
+// Products Route Section //
+Route::get('/products',  [ProductController::class, 'index'])->name('product.index')->middleware(['auth', 'verified']);
+Route::get('/product/create',  [ProductController::class, 'create'])->name('product.create')->middleware(['auth', 'verified']);
+Route::post('/product/store',  [ProductController::class, 'store'])->name('product.store')->middleware(['auth', 'verified']);
 
 
 
