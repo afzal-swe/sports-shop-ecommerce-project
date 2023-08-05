@@ -45,4 +45,26 @@ class SubcategoryController extends Controller
         $notification = array('message' => 'Add Subcategory Successfully', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
+
+    public function active(Request $request)
+    {
+        $update = $request->id;
+
+        Subcategory::findOrFail($update)->update([
+            'subcategory_status' => '0',
+        ]);
+        $notification = array('message' => 'Subcategory Unactive Successfully', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
+    }
+
+    public function unactive(Request $request)
+    {
+        $update = $request->id;
+
+        Subcategory::findOrFail($update)->update([
+            'subcategory_status' => '1',
+        ]);
+        $notification = array('message' => 'Subcategory Active Successfully', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
+    }
 }
