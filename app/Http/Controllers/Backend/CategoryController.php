@@ -14,7 +14,7 @@ class CategoryController extends Controller
     //  All Category Show Function //
     public function index()
     {
-        $category = Category::all();
+        $category = Category::orderBy('id', 'DESC')->get();
         return view('backend.category.index', compact('category'));
     }
     //  All Category Show Function //

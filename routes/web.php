@@ -4,12 +4,14 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 
-
 // Backend Controller
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\SubcategoryController;
+
+//Frontend Controller
+use App\Http\Controllers\Frontend\FCategoryController;
 
 
 
@@ -45,7 +47,7 @@ Route::middleware('auth')->group(function () {
 
 
 
-// Backend Routes....................................................................
+// Backend Routes....................................................................Start
 
 
 // Brands Route Section //
@@ -71,6 +73,14 @@ Route::get('/category/delete/{id}',  [CategoryController::class, 'destroy'])->na
 // Sub-category Route Section //
 Route::get('/sub-category',  [SubcategoryController::class, 'index'])->name('subcategory.index')->middleware(['auth', 'verified']);
 Route::get('/sub-category/create',  [SubcategoryController::class, 'create'])->name('subcategory.create')->middleware(['auth', 'verified']);
+Route::post('/sub-category/store',  [SubcategoryController::class, 'store'])->name('subcategory.store')->middleware(['auth', 'verified']);
+
+
+
+// Backend Routes....................................................................End
+
+
+// Frontend Routes....................................................................Start
 
 
 

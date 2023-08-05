@@ -16,8 +16,8 @@
 
             <li>
                 @php
-                $category = DB::table('categories')->get();
-            @endphp
+                    $category = DB::table('categories')->get();
+                @endphp
                 <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Category </span><span class="label label-info"> {{ count($category) }} </span></a>
                 <ul>
                     <li><a class="submenu" href="{{ route('category.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Category</span></a></li>
@@ -26,7 +26,10 @@
             </li>
 
             <li>
-                <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Sub-category </span><span class="label label-info"> 3 </span></a>
+                @php
+                    $subcategory = DB::table('subcategories')->get();
+                @endphp
+                <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Sub-category </span><span class="label label-info"> {{ count($subcategory) }} </span></a>
                 <ul>
                     <li><a class="submenu" href="{{ route('subcategory.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Sub-category</span></a></li>
                     <li><a class="submenu" href="{{ route('subcategory.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Sub-category</span></a></li>
