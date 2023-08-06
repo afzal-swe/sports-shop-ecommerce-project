@@ -45,7 +45,7 @@ class ProductController extends Controller
 
             $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
 
-            Image::make($img)->resize(430, 327)->save("image/product/" . $name_gen);
+            Image::make($img)->resize(400, 327)->save("image/product/" . $name_gen);
 
             $save_img_url = "image/product/" . $name_gen;
 
@@ -160,7 +160,7 @@ class ProductController extends Controller
             $file = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
 
-            Image::make($file)->resize(430, 327)->save('image/product/' . $name_gen);
+            Image::make($file)->resize(400, 327)->save('image/product/' . $name_gen);
 
             $save_url = 'image/product/' . $name_gen;
 
