@@ -138,4 +138,70 @@ class ProductController extends Controller
         $notification = array('message' => 'Product Active Successfully', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
+
+    public function edit($id)
+    {
+
+        $brand = Brand::all();
+        $category = Category::all();
+        $subcategory = Subcategory::all();
+
+        $edit = Product::findOrFail($id);
+
+        return view('backend.product.edit', compact('brand', 'category', 'subcategory', 'edit'));
+    }
+
+
+    public function update(Request $request)
+    {
+        $update = $request->id;
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $name_gen = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+
+            Image::make($file)->resize(430, 327)->save('image/product/' . $name_gen);
+
+            $save_url = 'image/product/' . $name_gen;
+
+            Product::findOrFail($update)->update([
+                'brand_id' => $request->brand_id,
+                'category_id' => $request->category_id,
+                'subcategory_id' => $request->subcategory_id,
+                'title' => $request->title,
+                'price' => $request->price,
+                'quantity' => $request->quantity,
+                'discount_price' => $request->discount_price,
+                'post_date' => $request->post_date,
+                'tags' => $request->tags,
+                'color' => $request->color,
+                'size' => $request->size,
+                'image' => $save_url,
+                'description' => $request->description,
+                'slug' => Str::of($request->title)->slug('-'),
+                'updated_at' => Carbon::now(),
+            ]);
+            $notification = array('message' => 'Product Update Successfully', 'alert-type' => 'success');
+            return redirect()->back()->with($notification);
+        } else {
+            Product::findOrFail($update)->update([
+                'brand_id' => $request->brand_id,
+                'category_id' => $request->category_id,
+                'subcategory_id' => $request->subcategory_id,
+                'title' => $request->title,
+                'price' => $request->price,
+                'quantity' => $request->quantity,
+                'discount_price' => $request->discount_price,
+                'post_date' => $request->post_date,
+                'tags' => $request->tags,
+                'color' => $request->color,
+                'size' => $request->size,
+                'description' => $request->description,
+                'slug' => Str::of($request->title)->slug('-'),
+                'updated_at' => Carbon::now(),
+            ]);
+            $notification = array('message' => 'Product Update Successfully', 'alert-type' => 'success');
+            return redirect()->back()->with($notification);
+        }
+    }
 }

@@ -86,6 +86,8 @@ Route::post('/product/store',  [ProductController::class, 'store'])->name('produ
 Route::get('/product/delete/{id}',  [ProductController::class, 'destroy'])->name('product.destroy')->middleware(['auth', 'verified']);
 Route::get('/product/active/{id}',  [ProductController::class, 'active'])->name('product.active')->middleware(['auth', 'verified']);
 Route::get('/product/unactive/{id}',  [ProductController::class, 'unactive'])->name('product.unactive')->middleware(['auth', 'verified']);
+Route::get('/product/edit/{id}',  [ProductController::class, 'edit'])->name('product.edit')->middleware(['auth', 'verified']);
+Route::post('/product/update/{id}',  [ProductController::class, 'update'])->name('product.update')->middleware(['auth', 'verified']);
 
 
 
