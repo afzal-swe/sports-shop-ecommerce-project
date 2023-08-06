@@ -48,4 +48,25 @@ class SlicerController extends Controller
             return redirect()->back()->with($notification);
         }
     }
+
+    public function destroy($id)
+    {
+        $f_image = Slider::findOrFail($id);
+
+        $d_image = $f_image->slider_image;
+
+        if ($d_image == NULL) {
+
+            Slider::findOrFail($id)->delete();
+
+            $notification = array('message' => 'Slider Image Delete Successfully', 'alert-type' => 'success');
+            return redirect()->back()->with($notification);
+        } else {
+            unlink($d_image);
+            Slider::findOrFail($id)->delete();
+
+            $notification = array('message' => 'Slider Image Delete Successfully', 'alert-type' => 'success');
+            return redirect()->back()->with($notification);
+        }
+    }
 }

@@ -34,12 +34,12 @@
                     </td>
                     <td class="center">
                         @if ($row->status == '1')
-                            <a class="btn btn-success" href="#"><i class="fa-solid fa-toggle-on fa-xl" title="Unactive"></i></a>
+                            <a class="btn btn-success" href="{{ route('slider.active') }}"><i class="fa-solid fa-toggle-on fa-xl" title="Unactive"></i></a>
                         @else
-                            <a class="btn btn-label" href="#"><i class="fa-solid fa-toggle-off fa-xl" title="Active"></i></a>
+                            <a class="btn btn-label" href="{{ route('slider.unactive') }}"><i class="fa-solid fa-toggle-off fa-xl" title="Active"></i></a>
                         @endif
                         
-                        <a class="btn btn-danger" href="#"><i class="halflings-icon white trash" title="Delete"></i></a>
+                        <a class="btn btn-danger" href="{{ route('slider.destroy',$row->id) }}"><i class="halflings-icon white trash" title="Delete"></i></a>
                     </td>
                 </tr>
                 @endforeach
