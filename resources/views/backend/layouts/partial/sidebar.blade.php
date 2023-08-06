@@ -37,10 +37,13 @@
             </li>
 
             <li>
-                <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Post </span><span class="label label-info"> 3 </span></a>
+                @php
+                    $product = DB::table('products')->get();
+                @endphp
+                <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Product </span><span class="label label-info"> {{ count($product) }} </span></a>
                 <ul>
-                    <li><a class="submenu" href="{{ route('product.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add New Post </span></a></li>
-                    <li><a class="submenu" href="{{ route('product.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Post </span></a></li>
+                    <li><a class="submenu" href="{{ route('product.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add New Product </span></a></li>
+                    <li><a class="submenu" href="{{ route('product.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Product </span></a></li>
                 </ul>	
             </li>
 
