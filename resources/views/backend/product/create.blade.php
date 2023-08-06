@@ -17,26 +17,18 @@
                     <div class="control-group">
                         <label class="control-label" for="typeahead">Product Name <span class="text-danger" > *</span> </label>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                        <input type="text" class="span6 typeahead @error('title') is-invalid @enderror" name="title" placeholder="Product Name"><br>
-                        
-                        @error('title')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <input type="text" class="span6 typeahead" name="title" placeholder="Product Name" required><br>
                         </div>
                     </div>
 
                     <div class="control-group">
                         <label class="control-label" for="typeahead">Brand  <span class="text-danger">*</span></label>
                         <div class="col-md-3 col-sm-4 col-xs-3">
-                          <select name="brand_id" id="" class="span6 typeahead text-info @error('brand_id') is-invalid @enderror">
+                          <select name="brand_id" id="" class="span6 typeahead text-info" required>
                             <option value="" disabled selected>-- Choose Brand --</option>
                             @foreach ($brand as $row)
                               <option value="{{ $row->id }}">{{ $row->brand_name }}</option>
                             @endforeach
-      
-                            @error('brand_id')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
                           </select>
                           
                         </div>
@@ -45,7 +37,7 @@
                     <div class="control-group">
                         <label class="control-label" for="typeahead">Category <span class="text-danger">*</span></label>
                         <div class="col-md-3 col-sm-4 col-xs-3">
-                          <select name="category_id" id="" class="span6 typeahead text-info @error('category_id') is-invalid @enderror">
+                          <select name="category_id" id="" class="span6 typeahead text-info" required>
                             <option value="" disabled selected >-- Choose Category --</option>
                             @foreach ($brand as $row)
                               <option value="{{ $row->id }}" disabled>{{ $row->brand_name }}</option>
@@ -53,10 +45,6 @@
                                 <option value="{{ $row->id }}"> -- {{ $row->category_name }}</option>
                               @endforeach
                             @endforeach
-      
-                            @error('category_id')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
                           </select>
                           
                         </div>
@@ -65,7 +53,7 @@
                     <div class="control-group">
                         <label class="control-label" for="typeahead">Subcategory <span class="text-danger">*</span> </label>
                         <div class="col-md-3 col-sm-4 col-xs-3">
-                          <select name="subcategory_id" id="" class="span6 typeahead text-info @error('subcategory_id') is-invalid @enderror">
+                          <select name="subcategory_id" id="" class="span6 typeahead text-info" required>
                             <option value="" disabled selected>-- Choose Subcagegory --</option>
                             @foreach ($brand as $row)
                               <option value="{{ $row->id }}" disabled>{{ $row->brand_name }}</option>
@@ -76,10 +64,6 @@
                                 @endforeach
                               @endforeach
                             @endforeach
-      
-                            @error('subcategory_id')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
                           </select>
                           
                         </div>
@@ -90,77 +74,49 @@
                       <div class="control-group">
                         <label class="control-label" for="typeahead">Product Price <span class="text-danger" > *</span> </label>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                        <input type="text" class="span6 typeahead @error('price') is-invalid @enderror" name="price" placeholder="Product Price"><br>
-                        
-                        @error('price')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <input type="text" class="span6 typeahead" name="price" placeholder="Product Price" required><br>
                         </div>
                     </div>
 
                       <div class="control-group">
                         <label class="control-label" for="typeahead">Product Quentity <span class="text-danger" > *</span> </label>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                        <input type="text" class="span6 typeahead @error('quantity') is-invalid @enderror" name="quantity" placeholder="Product Qunatity"><br>
-                        
-                        @error('quantity')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <input type="text" class="span6 typeahead" name="quantity" placeholder="Product Qunatity" required><br>
                         </div>
                     </div>
 
                       <div class="control-group">
                         <label class="control-label" for="typeahead">Product Discount <span class="text-danger" > *</span> </label>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                        <input type="text" class="span6 typeahead @error('discount_price') is-invalid @enderror" name="discount_price" placeholder="Product Discount"><br>
-                        
-                        @error('discount_price')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <input type="text" class="span6 typeahead" name="discount_price" placeholder="Product Discount"><br>
                         </div>
                     </div>
 
                       <div class="control-group">
                         <label class="control-label" for="typeahead">Post Date <span class="text-danger" > *</span> </label>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                        <input type="date" class="span6 typeahead @error('post_date') is-invalid @enderror" name="post_date"><br>
-                        
-                        @error('post_date')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <input type="date" class="span6 typeahead " name="post_date" required><br>
                         </div>
                     </div>
 
                     <div class="control-group">
                         <label class="control-label" for="selectError1">Tags</label>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input type="text" class="span6 typeahead @error('tags') is-invalid @enderror" name="tags" placeholder="Product Tags"><br>
-
-                            @error('tags')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <input type="text" class="span6 typeahead" name="tags" placeholder="Product Tags" required><br>
                         </div>
                     </div>
 
                     <div class="control-group">
                         <label class="control-label" for="typeahead">Color <span class="text-danger" > *</span> </label>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                        <input type="text" class="span6 typeahead @error('color') is-invalid @enderror" name="color" placeholder="Product Color"><br>
-                        
-                        @error('color')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <input type="text" class="span6 typeahead " name="color" placeholder="Product Color"><br>
                         </div>
                     </div>
 
                       <div class="control-group">
                         <label class="control-label" for="typeahead">Size <span class="text-danger" > *</span> </label>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                        <input type="text" class="span6 typeahead @error('size') is-invalid @enderror" name="size" placeholder="Product Size"><br>
-                        
-                        @error('size')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <input type="text" class="span6 typeahead" name="size" placeholder="Product Size"><br>
                         </div>
                     </div>
 

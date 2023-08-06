@@ -18,7 +18,8 @@ class ProductController extends Controller
     //
     public function index()
     {
-        return view('backend.product.index');
+        $product = Product::orderBy('id', 'DESC')->get();
+        return view('backend.product.index', compact('product'));
     }
 
     public function create()
@@ -36,6 +37,7 @@ class ProductController extends Controller
             'category_id' => 'required',
             'subcategory_id' => 'required',
             'title' => 'required',
+            'post_date' => 'required',
         ]);
 
         if ($request->file('image')) {
