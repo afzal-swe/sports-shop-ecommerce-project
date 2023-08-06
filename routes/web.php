@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\SlicerController;
 
 //Frontend Controller
 use App\Http\Controllers\Frontend\FCategoryController;
@@ -89,6 +90,10 @@ Route::get('/product/unactive/{id}',  [ProductController::class, 'unactive'])->n
 Route::get('/product/edit/{id}',  [ProductController::class, 'edit'])->name('product.edit')->middleware(['auth', 'verified']);
 Route::post('/product/update/{id}',  [ProductController::class, 'update'])->name('product.update')->middleware(['auth', 'verified']);
 
+// Products Route Section //
+Route::get('/slider',  [SlicerController::class, 'index'])->name('slider.index')->middleware(['auth', 'verified']);
+Route::get('/slider/create',  [SlicerController::class, 'create'])->name('slider.create')->middleware(['auth', 'verified']);
+Route::post('/slider/store',  [SlicerController::class, 'store'])->name('slider.store')->middleware(['auth', 'verified']);
 
 
 // Backend Routes....................................................................End

@@ -50,8 +50,8 @@
             <li>
                 <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Slider </span><span class="label label-info"> 3 </span></a>
                 <ul>
-                    <li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Slider </span></a></li>
-                    <li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Slider </span></a></li>
+                    <li><a class="submenu" href="{{ route('slider.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Slider </span></a></li>
+                    <li><a class="submenu" href="{{ route('slider.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Slider </span></a></li>
                 </ul>	
             </li>
 
