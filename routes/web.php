@@ -83,6 +83,7 @@ Route::get('/sub-category/delete/{id}',  [SubcategoryController::class, 'destroy
 Route::get('/products',  [ProductController::class, 'index'])->name('product.index')->middleware(['auth', 'verified']);
 Route::get('/product/create',  [ProductController::class, 'create'])->name('product.create')->middleware(['auth', 'verified']);
 Route::post('/product/store',  [ProductController::class, 'store'])->name('product.store')->middleware(['auth', 'verified']);
+Route::get('/product/delete/{id}',  [ProductController::class, 'destroy'])->name('product.destroy')->middleware(['auth', 'verified']);
 
 
 

@@ -92,4 +92,26 @@ class ProductController extends Controller
             return redirect()->back()->with($notification);
         }
     }
+
+    public function destroy($id)
+    {
+
+        $d_img = Product::findOrFail($id);
+        $delete_image = $d_img->image;
+
+        if ($delete_image == Null) {
+
+            Product::findOrFail($id)->delete();
+
+            $notification = array('message' => 'Product Delete Without Image Successfully', 'alert-type' => 'success');
+            return redirect()->back()->with($notification);
+        } else {
+            unlink($delete_image);
+
+            Product::findOrFail($id)->delete();
+
+            $notification = array('message' => 'Product Delete Successfully', 'alert-type' => 'success');
+            return redirect()->back()->with($notification);
+        }
+    }
 }
