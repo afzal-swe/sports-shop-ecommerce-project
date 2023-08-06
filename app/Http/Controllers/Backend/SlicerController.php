@@ -69,4 +69,24 @@ class SlicerController extends Controller
             return redirect()->back()->with($notification);
         }
     }
+
+    public function active($id)
+    {
+
+        Slider::findOrFail($id)->update([
+            'status' => '0',
+        ]);
+        $notification = array('message' => 'Slider Deactive Successfully', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
+    }
+
+    public function unactive($id)
+    {
+
+        Slider::findOrFail($id)->update([
+            'status' => '1',
+        ]);
+        $notification = array('message' => 'Slider Active Successfully', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
+    }
 }

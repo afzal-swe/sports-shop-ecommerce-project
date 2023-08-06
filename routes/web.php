@@ -95,6 +95,8 @@ Route::get('/slider',  [SlicerController::class, 'index'])->name('slider.index')
 Route::get('/slider/create',  [SlicerController::class, 'create'])->name('slider.create')->middleware(['auth', 'verified']);
 Route::post('/slider/store',  [SlicerController::class, 'store'])->name('slider.store')->middleware(['auth', 'verified']);
 Route::get('/slider/delete/{id}',  [SlicerController::class, 'destroy'])->name('slider.destroy')->middleware(['auth', 'verified']);
+Route::get('/slider/active/{id}',  [SlicerController::class, 'active'])->name('slider.active')->middleware(['auth', 'verified']);
+Route::get('/slider/unactive/{id}',  [SlicerController::class, 'unactive'])->name('slider.unactive')->middleware(['auth', 'verified']);
 
 
 // Backend Routes....................................................................End
