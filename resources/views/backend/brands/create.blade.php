@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="box-content">
-            <form class="form-horizontal" action="{{ route('brand.store') }}" method="POST">
+            <form class="form-horizontal" action="{{ route('brand.store') }}" method="POST" enctype="multipart/form-data">
              @csrf
 
                     <div class="control-group">
@@ -29,7 +29,7 @@
                     <div class="control-group">
                         <label class="control-label" for="fileInput">File input</label>
                         <div class="controls">
-                            <input class="input-file uniform_on" id="fileInput" type="file">
+                            <input class="input-file uniform_on" name="image" type="file">
                         </div>
                     </div>
 

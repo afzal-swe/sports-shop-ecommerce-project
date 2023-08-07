@@ -26,7 +26,7 @@
                 @foreach ($brand as $key=>$row)
                 <tr>
                     <td>{{ ++$key }}</td>
-                    <td><img src="" alt="" style="height: 40px; width:40px;"></td>
+                    <td><img src="{{ asset($row->image) }}" alt="" style="height: 40px; width:40px;"></td>
                     <td class="center">{{ $row->brand_name }}</td>
                     <td class="center">{{ $row->brand_slug }}</td>
                     <td class="center">

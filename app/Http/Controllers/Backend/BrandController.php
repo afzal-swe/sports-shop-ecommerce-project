@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Brand;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class BrandController extends Controller
 {
@@ -32,14 +33,34 @@ class BrandController extends Controller
             'brand_name' => 'required|unique:brands|max:25',
         ]);
 
-        Brand::insert([
-            'brand_name' => $request->brand_name,
-            'brand_slug' => Str::of($request->brand_name)->slug('-'),
-            'brand_status' => $request->brand_status,
-            'created_at' => Carbon::now(),
-        ]);
-        $notification = array('message' => 'Add Brand Successfully', 'alert-type' => 'success');
-        return redirect()->back()->with($notification);
+        if ($request->file('image')) {
+            $img = $request->file('image');
+
+            $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
+
+            Image::make($img)->resize(60, 60)->save("image/brand/" . $name_gen);
+
+            $save_img_url = "image/brand/" . $name_gen;
+
+            Brand::insert([
+                'brand_name' => $request->brand_name,
+                'image' => $save_img_url,
+                'brand_slug' => Str::of($request->brand_name)->slug('-'),
+                'brand_status' => $request->brand_status,
+                'created_at' => Carbon::now(),
+            ]);
+            $notification = array('message' => 'Add Brand Successfully', 'alert-type' => 'success');
+            return redirect()->back()->with($notification);
+        } else {
+            Brand::insert([
+                'brand_name' => $request->brand_name,
+                'brand_slug' => Str::of($request->brand_name)->slug('-'),
+                'brand_status' => $request->brand_status,
+                'created_at' => Carbon::now(),
+            ]);
+            $notification = array('message' => 'Add Brand Successfully', 'alert-type' => 'success');
+            return redirect()->back()->with($notification);
+        }
     }
 
     public function active(Request $request)
