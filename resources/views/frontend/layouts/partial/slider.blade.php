@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             @php
-                $slider = DB::table('sliders')->where('status', '=', '1')->orderBy('id', 'DESC')->limit(4)->get();
+                $slider = DB::table('sliders')->where('status', '=', '1')->orderBy('id', 'DESC')->limit(5)->get();
             @endphp
             <div class="col-sm-12">
                 <div id="slider-carousel" class="carousel slide" data-ride="carousel">
