@@ -1,5 +1,4 @@
 @extends('frontend.layouts.app')
-
 @section('content')
     <!--features_items-->
 @include('frontend.layouts.partial.features_items')

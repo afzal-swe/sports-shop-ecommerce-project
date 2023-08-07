@@ -8,7 +8,7 @@
         <div class="product-image-wrapper" >
             <div class="single-products">
                     <div class="productinfo text-center" style="height: 350px;" >
-                        <a href="">
+                        <a href="{{ route('product.details',$row->id) }}">
                             <img src="{{ asset ($row->image)}}" alt=""   />
                         </a>
                         <h2>{{ $row->price }}৳</h2>
@@ -19,7 +19,7 @@
             <div class="choose">
                 <ul class="nav nav-pills nav-justified">
                     <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                    <li><a href="#"><i class="fa fa-plus-square"></i>View Product</a></li>
+                    <li><a href="{{ route('product.details',$row->id) }}"><i class="fa fa-plus-square"></i>View Product</a></li>
                 </ul>
             </div>
         </div>

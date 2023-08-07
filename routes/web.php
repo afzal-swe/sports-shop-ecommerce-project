@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\SlicerController;
 
 //Frontend Controller
 use App\Http\Controllers\Frontend\FCategoryController;
+use App\Http\Controllers\Frontend\ProductDetailsController;
 
 
 
@@ -103,6 +104,12 @@ Route::get('/slider/unactive/{id}',  [SlicerController::class, 'unactive'])->nam
 
 
 // Frontend Routes....................................................................Start
+
+// Category relative Product Show Route Section //
+Route::get('/category/product/{id}',  [FCategoryController::class, 'show_category_product'])->name('category.show')->middleware(['auth', 'verified']);
+
+// Product Details Route Section //
+Route::get('/product/details/{id}',  [ProductDetailsController::class, 'product_details'])->name('product.details');
 
 
 
