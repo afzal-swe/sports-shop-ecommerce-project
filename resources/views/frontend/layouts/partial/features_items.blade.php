@@ -4,12 +4,12 @@
         $product = DB::table('products')->where('status', '=', '1')->orderBy('id', 'DESC')->limit(6)->get();
     @endphp
     @foreach ($product as $row)
-    <div class="col-sm-4">
-        <div class="product-image-wrapper">
+    <div class="col-sm-4" >
+        <div class="product-image-wrapper" >
             <div class="single-products">
-                    <div class="productinfo text-center">
+                    <div class="productinfo text-center" style="height: 350px;" >
                         <a href="">
-                            <img src="{{ asset ($row->image)}}" alt=""  />
+                            <img src="{{ asset ($row->image)}}" alt=""   />
                         </a>
                         <h2>{{ $row->price }}৳</h2>
                         <p>{{ $row->title }}</p>
