@@ -26,12 +26,16 @@
 								<img src="{{ asset('frontend/images/product-details/rating.png')}}" alt="" />
 								<span>
 									<span>{{ $details->price }} ৳</span>
-									<label>Quantity:</label>
-									<input type="text" value="3" />
-									<button type="button" class="btn btn-fefault cart">
-										<i class="fa fa-shopping-cart"></i>
-										Add to cart
-									</button>
+									<form action="{{ route('add_to_cart',$details->id) }}" method="POST">
+									@csrf
+										<label>Quantity:</label>
+										<input type="text" name="quantity" value="1" />
+										
+											<button type="submit" class="btn btn-fefault cart">
+												<i class="fa fa-shopping-cart"></i>
+												Add to cart
+											</button>
+									</form>
 								</span>
 								<p><b>Availability :</b>
                                     @if ($details->quantity=='0')

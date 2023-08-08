@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\SlicerController;
 //Frontend Controller
 use App\Http\Controllers\Frontend\FCategoryController;
 use App\Http\Controllers\Frontend\ProductDetailsController;
+use App\Http\Controllers\Frontend\Add_To_CartController;
 
 
 
@@ -110,6 +111,10 @@ Route::get('/category/product/{id}',  [FCategoryController::class, 'show_categor
 
 // Product Details Route Section //
 Route::get('/product/details/{id}',  [ProductDetailsController::class, 'product_details'])->name('product.details');
+
+// Product Add To Cart Route Section //
+Route::post('/product/add-to-cart/{id}',  [Add_To_CartController::class, 'add_to_cart'])->name('add_to_cart');
+// Route::get('/product/quantity/{id}',  [Add_To_CartController::class, 'inc_quantity'])->name('inc.quantity');
 
 
 

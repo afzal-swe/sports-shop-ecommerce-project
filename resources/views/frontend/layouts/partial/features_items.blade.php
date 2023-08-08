@@ -13,7 +13,10 @@
                         </a>
                         <h2>{{ $row->price }}৳</h2>
                         <p>{{ $row->title }}</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                        <form action="{{ route('add_to_cart',$row->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                        </form>
                     </div>
                 </div>
             <div class="choose">
