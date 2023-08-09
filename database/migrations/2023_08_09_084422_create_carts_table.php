@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('price')->nullable();
             $table->string('quantity')->nullable();
             $table->string('image')->nullable();
+            $table->string('total')->nullable();
             $table->timestamps();
         });
     }

@@ -41,6 +41,20 @@ class Add_To_CartController extends Controller
 
     public function cart_view()
     {
-        return view('frontend.add_to_cart.add_to_cart');
+        if (Auth::id()) {
+            $id = Auth::user()->id;
+            $cart_view = Cart::where('user_id', '=', $id)->orderBy('id', 'DESC')->get();
+
+            return view('frontend.add_to_cart.add_to_cart', compact('cart_view'));
+        }
+    }
+
+    public function destroy($id)
+    {
+
+        Cart::findOrFail($id)->delete();
+
+        $notification = array('message' => 'Cart to cart Cansel Successfully', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
     }
 }

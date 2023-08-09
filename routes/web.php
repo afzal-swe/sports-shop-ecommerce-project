@@ -119,6 +119,7 @@ Route::get('/product/details/{id}',  [ProductDetailsController::class, 'product_
 // Product Add To Cart Route Section //
 Route::post('/product/add-to-cart/{id}',  [Add_To_CartController::class, 'add_to_cart'])->name('add_to_cart')->middleware(['auth', 'verified']);
 Route::get('/add/cart',  [Add_To_CartController::class, 'cart_view'])->name('cart.view')->middleware(['auth', 'verified']);
+Route::get('/cart/cancel/{id}',  [Add_To_CartController::class, 'destroy'])->name('product.destroy')->middleware(['auth', 'verified']);
 
 
 

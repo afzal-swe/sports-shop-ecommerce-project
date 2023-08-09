@@ -24,58 +24,40 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
-
+						@php
+							$total_price=0;
+							
+						@endphp
+						@foreach ($cart_view as $product)
+							<tr>
+								<td class="cart_product">
+									<a href=""><img src="{{asset($product->image)}}" alt="" style="height: 60px; width:60px;"></a>
+								</td>
+								<td class="cart_description">
+									<h4><a href="">{{ $product->product_title }}</a></h4>
+									<p>Web ID: 1089772</p>
+								</td>
+								<td class="cart_price">
+									<p>{{ $product->price }} ৳</p>
+								</td>
+								<td class="cart_quantity">
+									<div class="cart_quantity_button">
+										<a class="cart_quantity_up" href=""> + </a>
+										<input class="cart_quantity_input" type="text" name="quantity" value="{{ $product->quantity }}" autocomplete="off" size="2">
+										<a class="cart_quantity_down" href=""> - </a>
+									</div>
+								</td>
+								<?php $total_price = $total_price+$product->price; ?>
+								<td class="cart_total">
+									<p class="cart_total_price">{{ $total_price }} ৳</p>
+								</td>
+								<td class="cart_delete">
+									<a class="cart_quantity_delete" href="{{ route('product.destroy',$product->id) }}"><i class="fa fa-times"></i></a>
+								</td>
+							</tr>
+							
+						@endforeach
 						
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="{{ asset ('frontend/images/cart/three.png')}}" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
