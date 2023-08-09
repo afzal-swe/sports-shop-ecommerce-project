@@ -11,7 +11,7 @@ class AddToCartController extends Controller
     //
     public function index()
     {
-        $cart = Cart::all();
+        $cart = Cart::orderBy('id', 'DESC')->get();
         return view('backend.add_to_cart.index', compact('cart'));
     }
 }

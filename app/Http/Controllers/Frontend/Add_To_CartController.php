@@ -14,23 +14,29 @@ class Add_To_CartController extends Controller
     //
     public function add_to_cart(Request $request, $id)
     {
-        $user = Auth::user();
-        $product = Product::find($id);
+        if (Auth::id()) {
 
-        $cart = new Cart();
-        // $cart->user_name = Auth::user()->name;
-        // $cart->user_email = $user->email;
-        // $cart->user_id = $user->id;
+            $user = Auth::user();
+            $product = Product::find($id);
 
-        $cart->product_title = $product->title;
-        $cart->quantity = $request->quantity;
-        $cart->product_id = $product->id;
-        $cart->image = $product->image;
+            $cart = new Cart();
+            $cart->user_name = $user->name;
+            $cart->user_email = $user->email;
+            $cart->user_id = $user->id;
 
-        $cart->save();
+            $cart->product_title = $product->title;
+            $cart->price = $product->price;
+            $cart->quantity = $request->quantity;
+            $cart->product_id = $product->id;
+            $cart->image = $product->image;
 
-        $notification = array('message' => 'Add to Cart Successfully', 'alert-type' => 'success');
-        return redirect()->back()->with($notification);
+            $cart->save();
+
+            $notification = array('message' => 'Add to Cart Successfully', 'alert-type' => 'success');
+            return redirect()->back()->with($notification);
+        } else {
+            return redirect('login');
+        }
     }
 
     public function cart_view()
