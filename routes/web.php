@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SlicerController;
+use App\Http\Controllers\Backend\AddToCartController;
 
 //Frontend Controller
 use App\Http\Controllers\Frontend\FCategoryController;
@@ -101,6 +102,8 @@ Route::get('/slider/delete/{id}',  [SlicerController::class, 'destroy'])->name('
 Route::get('/slider/active/{id}',  [SlicerController::class, 'active'])->name('slider.active')->middleware(['auth', 'verified']);
 Route::get('/slider/unactive/{id}',  [SlicerController::class, 'unactive'])->name('slider.unactive')->middleware(['auth', 'verified']);
 
+// Add To Cart Route Section //
+Route::get('/all/cart',  [AddToCartController::class, 'index'])->name('cart.index')->middleware(['auth', 'verified']);
 
 // Backend Routes....................................................................End
 
@@ -115,7 +118,7 @@ Route::get('/product/details/{id}',  [ProductDetailsController::class, 'product_
 
 // Product Add To Cart Route Section //
 Route::post('/product/add-to-cart/{id}',  [Add_To_CartController::class, 'add_to_cart'])->name('add_to_cart')->middleware(['auth', 'verified']);
-Route::get('/add/cart',  [Add_To_CartController::class, 'cart_view'])->name('cart.view');
+Route::get('/add/cart',  [Add_To_CartController::class, 'cart_view'])->name('cart.view')->middleware(['auth', 'verified']);
 
 
 

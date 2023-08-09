@@ -49,6 +49,16 @@
 
             <li>
                 @php
+                    $cart = DB::table('carts')->get();
+                @endphp
+                <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Cart </span><span class="label label-info"> {{ count($cart) }} </span></a>
+                <ul>
+                    <li><a class="submenu" href="{{ route('cart.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Add to Cart </span></a></li>
+                </ul>	
+            </li>
+
+            <li>
+                @php
                 $slider = DB::table('sliders')->get();
             @endphp
                 <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Slider </span><span class="label label-info"> {{ count($slider) }} </span></a>
