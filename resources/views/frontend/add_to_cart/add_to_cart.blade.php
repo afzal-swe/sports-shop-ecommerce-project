@@ -16,7 +16,7 @@
 					<thead>
 						<tr class="cart_menu">
 							<td class="image">Item</td>
-							{{-- <td class="description"></td> --}}
+							<td class="description"></td>
 							<td class="price">Price</td>
 							<td class="quantity">Quantity</td>
 							<td class="total">Total</td>
@@ -143,7 +143,7 @@
 						<a class="btn btn-default check_out" href="">Continue</a>
 					</div>
 				</div> --}}
-				<div class="col-sm-10">
+				<div class="col-sm-12">
 					<div class="total_area">
 						<ul>
 							<li>Cart Sub Total <span>$59</span></li>

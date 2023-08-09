@@ -1,4 +1,4 @@
-@extends('backend.layouts.app')
+{{-- @extends('backend.layouts.app')
 @section('admin_content')
 <div class="row-fluid">
 				
@@ -625,4 +625,4 @@
     <div class="clearfix"></div>
                     
 </div><!--/row-->
-@endsection
+@endsection --}}

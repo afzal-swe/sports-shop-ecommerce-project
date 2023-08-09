@@ -35,10 +35,11 @@ use App\Http\Controllers\Frontend\Add_To_CartController;
 // });
 
 Route::get('/',  [HomeController::class, 'index']);
+Route::get('/redirect',  [HomeController::class, 'login_function'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -113,8 +114,8 @@ Route::get('/category/product/{id}',  [FCategoryController::class, 'show_categor
 Route::get('/product/details/{id}',  [ProductDetailsController::class, 'product_details'])->name('product.details');
 
 // Product Add To Cart Route Section //
-Route::post('/product/add-to-cart/{id}',  [Add_To_CartController::class, 'add_to_cart'])->name('add_to_cart');
-// Route::get('/product/quantity/{id}',  [Add_To_CartController::class, 'inc_quantity'])->name('inc.quantity');
+Route::post('/product/add-to-cart/{id}',  [Add_To_CartController::class, 'add_to_cart'])->name('add_to_cart')->middleware(['auth', 'verified']);
+Route::get('/add/cart',  [Add_To_CartController::class, 'cart_view'])->name('cart.view');
 
 
 

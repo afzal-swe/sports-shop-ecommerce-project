@@ -62,8 +62,24 @@
                             <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="{{ route('cart.view') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                            @if (Route::has('login'))
+                                @auth
+                                    <li>
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Logout</a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                    </form>
+                                    </li>
+                            @else
+                                    <li><a href="{{ route('login') }}"><i class="fa fa-lock"></i> Login</a></li>
+                                    <li><a href="{{ route('register') }}"><i class="fa fa-lock"></i> Register</a></li>
+                                @endauth
+                            @endif
+                            
+                            
                         </ul>
                     </div>
                 </div>

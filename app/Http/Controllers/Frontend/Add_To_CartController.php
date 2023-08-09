@@ -5,35 +5,36 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
 
-use Illuminate\Support\Facades\Session;
-use Darryldecode\Cart\Cart;
 
 class Add_To_CartController extends Controller
 {
     //
-    public function add_to_cart(Request $request)
+    public function add_to_cart(Request $request, $id)
     {
-        $add_cart = $request->id;
-        $Product = Product::findOrFail($add_cart);
-        $quantity = $request->quantity;
+        $user = Auth::user();
+        $product = Product::find($id);
 
-        // $userId = $request->session()->get($add_cart)->id;
+        $cart = new Cart();
+        // $cart->user_name = Auth::user()->name;
+        // $cart->user_email = $user->email;
+        // $cart->user_id = $user->id;
 
-        // add the product to cart
-        $cart = Cart::session($add_cart)->add(array(
-            'id' => '202',
-            'name' => $Product->name,
-            'price' => $Product->price,
-            'quantity' => $request->quantity,
-            'attributes' => array(),
-        ));
-        dd($cart);
-        // $notification = array('message' => 'Add to Cart Successfully', 'alert-type' => 'success');
-        // return redirect()->back()->with($notification);
+        $cart->product_title = $product->title;
+        $cart->quantity = $request->quantity;
+        $cart->product_id = $product->id;
+        $cart->image = $product->image;
+
+        $cart->save();
+
+        $notification = array('message' => 'Add to Cart Successfully', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
     }
 
-    // public function view_cart(Request $request){
-    //     $userId = $request->session()->get($add_cart)->id;
-    // }
+    public function cart_view()
+    {
+        return view('frontend.add_to_cart.add_to_cart');
+    }
 }

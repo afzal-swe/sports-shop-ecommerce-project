@@ -15,6 +15,7 @@
                         <p>{{ $row->title }}</p>
                         <form action="{{ route('add_to_cart',$row->id) }}" method="POST">
                             @csrf
+                            <input type="hidden" name="quantity" value="1" />
                             <button type="submit" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
                         </form>
                     </div>
