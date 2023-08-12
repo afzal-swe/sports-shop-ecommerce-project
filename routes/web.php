@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\AddToCartController;
 use App\Http\Controllers\Frontend\FCategoryController;
 use App\Http\Controllers\Frontend\ProductDetailsController;
 use App\Http\Controllers\Frontend\Add_To_CartController;
+use App\Http\Controllers\Frontend\CheckoutController;
 
 
 
@@ -120,6 +121,10 @@ Route::get('/product/details/{id}',  [ProductDetailsController::class, 'product_
 Route::post('/product/add-to-cart/{id}',  [Add_To_CartController::class, 'add_to_cart'])->name('add_to_cart')->middleware(['auth', 'verified']);
 Route::get('/add/cart',  [Add_To_CartController::class, 'cart_view'])->name('cart.view')->middleware(['auth', 'verified']);
 Route::get('/cart/cancel/{id}',  [Add_To_CartController::class, 'destroy'])->name('product.destroy')->middleware(['auth', 'verified']);
+
+// Product Add To Cart Route Section //
+Route::get('/chackout',  [CheckoutController::class, 'chackout_login'])->name('chackout.login');
+
 
 
 

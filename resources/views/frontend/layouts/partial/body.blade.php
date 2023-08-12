@@ -4,6 +4,7 @@
     <!--features_items-->
 @include('frontend.layouts.partial.features_items')
 <!--features_items-->
+                
 
 <div class="category-tab"><!--category-tab-->
     <div class="col-sm-12">
