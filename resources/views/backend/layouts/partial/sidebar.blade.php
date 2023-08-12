@@ -59,12 +59,21 @@
 
             <li>
                 @php
-                $slider = DB::table('sliders')->get();
-            @endphp
+                    $slider = DB::table('sliders')->get();
+                @endphp
                 <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Slider </span><span class="label label-info"> {{ count($slider) }} </span></a>
                 <ul>
                     <li><a class="submenu" href="{{ route('slider.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Slider </span></a></li>
                     <li><a class="submenu" href="{{ route('slider.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Slider </span></a></li>
+                </ul>	
+            </li>
+
+            <li>
+               
+                <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Shipping </span><span class="label label-info"> {{ count($slider) }} </span></a>
+                <ul>
+                    <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Shipping </span></a></li>
+                    
                 </ul>	
             </li>
 

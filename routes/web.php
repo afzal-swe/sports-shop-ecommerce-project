@@ -124,6 +124,7 @@ Route::get('/cart/cancel/{id}',  [Add_To_CartController::class, 'destroy'])->nam
 
 // Product Add To Cart Route Section //
 Route::get('/chackout',  [CheckoutController::class, 'chackout_login'])->name('chackout.login');
+Route::post('/shipping',  [CheckoutController::class, 'shipping'])->name('shipping.create')->middleware(['auth', 'verified']);
 
 
 
