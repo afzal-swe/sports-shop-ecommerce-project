@@ -126,6 +126,9 @@ Route::get('/cart/cancel/{id}',  [Add_To_CartController::class, 'destroy'])->nam
 Route::get('/chackout',  [CheckoutController::class, 'chackout_login'])->name('chackout.login');
 Route::post('/shipping',  [CheckoutController::class, 'shipping'])->name('shipping.create')->middleware(['auth', 'verified']);
 
+// Payment Route Section //
+Route::get('/payment',  [CheckoutController::class, 'payment'])->name('payment')->middleware(['auth', 'verified']);
+
 
 
 

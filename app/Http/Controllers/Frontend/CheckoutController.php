@@ -48,6 +48,12 @@ class CheckoutController extends Controller
         ]);
 
         $notification = array('message' => 'Shipping Successfully', 'alert-type' => 'success');
-        return redirect()->back()->with($notification);
+        return redirect()->route('payment')->with($notification);
+    }
+
+    public function payment()
+    {
+        $cart_view = Cart::all();
+        return view('frontend.payment.index', compact('cart_view'));
     }
 }
